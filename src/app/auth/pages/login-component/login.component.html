@@ -1,1 +1,40 @@
-<p>login-component works!</p>
+<app-header></app-header>
+
+<div class="p-4">
+  <h4>Iniciá sesión</h4>
+  <form (ngSubmit)="login($event)">
+    <div class="mb-3">
+      <label for="login-email"></label>
+      <input type="email"
+             id="login-email"
+             placeholder="Correo electrónico"
+             name="email"
+             [(ngModel)]="loginUser.mail">
+    </div>
+    <div class="mb-3">
+      <label for="login-password"></label>
+      <input (focus)="changeHeaderImage($event)"
+             type="password"
+             id="login-password"
+             placeholder="Contraseña"
+             name="password"
+             [(ngModel)]="loginUser.password">
+
+      <div class="d-flex justify-content-between">
+        <span class="form-text text-danger">{{alertMessage}}</span>
+        <a class="form-text">¿Olvidaste tu contraseña?</a>
+      </div>
+    </div>
+    <button type="submit" class="btn-submit fw-semibold">Ingresar a la cuenta</button>
+
+    <div class="form-text text-center mt-3">
+      ¿No tenés una cuenta?
+      <a routerLink="/registro"
+         class="form-text fw-semibold">Registrate</a>
+    </div>
+
+  </form>
+
+  <app-footer-join-with></app-footer-join-with>
+
+</div>
