@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthApiService} from "../../services/auth-api.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styles: [
-  ]
+  styles: []
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+  currentUser = JSON.parse(localStorage.getItem("currentUser")!);
 
-  constructor() { }
+  constructor(private authApiService: AuthApiService) {
+  }
 
-  ngOnInit(): void {
+  logout() {
+    this.authApiService.logout();
   }
 
 }
