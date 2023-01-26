@@ -1,10 +1,11 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
-import {AuthApiService} from "../../services/auth-api.service";
+import {Component, ElementRef, ViewChild} from "@angular/core";
+import {HeaderContentComponent} from "../../../shared/header-content/header-content.component";
 import {LoginUser} from "../../models/user.interface";
 import {Router} from "@angular/router";
+import {AuthApiService} from "../../services/auth-api.service";
 import {AuthAPIResponse} from "../../interfaces/auth-api-response.interface";
 import {HttpErrorResponse} from "@angular/common/http";
-import {HeaderContentComponent} from "../../../shared/header-content/header-content.component";
+
 
 @Component({
   selector: 'app-login',

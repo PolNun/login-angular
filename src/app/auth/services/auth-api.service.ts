@@ -1,9 +1,10 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {LoginUser, RegisterUser} from "../models/user.interface";
-import {Observable} from "rxjs";
 import {AuthAPIResponse} from "../interfaces/auth-api-response.interface";
+import {Observable} from "rxjs";
+import {LoginUser, RegisterUser} from "../models/user.interface";
+
 
 @Injectable({
   providedIn: 'root'

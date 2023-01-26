@@ -1,0 +1,87 @@
+<app-header-content></app-header-content>
+<h4>Registrate</h4>
+<span id="error"></span>
+<form (ngSubmit)="register($event)">
+  <div class="row">
+    <div class="col-12 mb-3">
+      <label for="register-name"></label>
+      <input type="text"
+             placeholder="Nombre de usuario (sin espacios)"
+             #registerName
+             id="register-name"
+             name="name"
+             [(ngModel)]="registerUser.name"
+             required>
+      <span *ngIf="((registerName.value.length !== 0) && validateName())" class="form-text text-danger">
+        El nombre debe tener entre 15 y 40 caracteres alfabéticos
+      </span>
+    </div>
+
+    <div class="mb-3">
+      <label for="register-email" class="form-label"></label>
+      <input type="email"
+             placeholder="Correo electrónico"
+             #registerMail
+             id="register-email"
+             name="mail"
+             [(ngModel)]="registerUser.mail"
+             required>
+      <span *ngIf="(registerMail.value.length !== 0) && validateMail()" class="form-text text-danger">
+        El mail no es válido
+      </span>
+    </div>
+    <div class="mb-3">
+      <label for="register-email-confirmation" class="form-label"></label>
+      <input type="email"
+             #registerMailConfirmation
+             id="register-email-confirmation"
+             placeholder="Repetir el correo electrónico"
+             required>
+      <span *ngIf="(registerMailConfirmation.value !== registerMail.value)"
+            class="form-text text-danger">
+        Los correos no coinciden
+      </span>
+    </div>
+    <div class="col-12 col-md-6 mb-3 mb-md-0">
+      <label for="register-password" class="form-label"></label>
+      <input type="password"
+             id="register-password"
+             #registerPassword
+             placeholder="Contraseña"
+             name="password"
+             [(ngModel)]="registerUser.password"
+             required>
+      <span *ngIf="(registerPassword.value.length !== 0) && validatePassword()" class="form-text text-danger">
+        La contraseña debe tener entre 8 y 30 caracteres
+      </span>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <label for="register-password-confirmation" class="form-label"></label>
+      <input type="password"
+             id="register-password-confirmation"
+             #registerPasswordConfirmation
+             placeholder="Repetir contraseña"
+             required>
+      <span *ngIf="(registerPasswordConfirmation.value !== registerPassword.value)"
+            class="form-text text-danger">
+        Las contraseñas no coinciden
+      </span>
+    </div>
+
+    <span class="form-text text-danger mb-2">{{alertMessage}}</span>
+
+    <div>
+      <button type="submit" class="fw-semibold btn-submit">
+        Crear cuenta
+      </button>
+    </div>
+
+    <div class="form-text text-center mt-3">
+      ¿Ya tenés una cuenta?
+      <a routerLink="/login"
+         class="form-text text-decoration-none fw-semibold">Ingresá</a>
+    </div>
+  </div>
+</form>
+<app-footer-join-with></app-footer-join-with>

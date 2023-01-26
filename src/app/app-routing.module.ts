@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {LoginComponent} from "../../../loginPractica/src/app/auth/pages/login/login.component";
-import {RegistroComponent} from "../../../loginPractica/src/app/auth/pages/registro/registro.component";
-import {HomeComponent} from "../../../loginPractica/src/app/auth/pages/home/home.component";
-import {PageNotFoundComponent} from "../../../loginPractica/src/app/page-not-found/page-not-found.component";
+import {LoginComponent} from "./auth/pages/login-component/login.component";
+import {RegisterComponent} from "./auth/pages/register-component/register.component";
+import {HomeComponent} from "./auth/pages/home/home.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    component: RegistroComponent
+    component: RegisterComponent
   },
   {
     path: 'home',
